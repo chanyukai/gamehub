@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar"
 import GameGrid from "./components/GameGrid"
 
 const App = () => {
+  
   return (
     <Grid
       templateAreas={{
