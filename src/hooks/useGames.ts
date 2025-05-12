@@ -26,21 +26,25 @@ export const useGames = () => {
 
 
   const [games, setGames] = useState<Game[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
 
+    setLoading(true);
+
     apiClient.get<FetchGamesResponse>('/games', { signal: controller.signal })
-      .then(res =>
+      .then(res => {
         setGames(res.data.results)
+        setLoading(false)
+      }
       ).catch(error => {
           if (error instanceof CanceledError) return;
           setError(error.message)
+          setLoading(false)
         }
       )
-      .finally(() => setLoading(false));
 
     return () => controller.abort();
   }, []);
