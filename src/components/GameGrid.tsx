@@ -12,7 +12,7 @@ const GameGrid = () => {
   if (error) return <Text>Error: {error}</Text>
   
   return (
-     <SimpleGrid columns={{sm: 1, md: 2, lg: 3, xl: 5}} gap={10} padding={10}>
+     <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} gap={10} padding={10}>
       {!loading && !error && games.map(game => (
         <GameCard key={game.id} game={game} />
       ))}
