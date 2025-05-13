@@ -15,6 +15,7 @@ export interface Game {
     {platform: Platform;}
   ];
   metacritic: number;
+  rating_top: number;
 }
 
 // const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => useData<Game>('/games', {
