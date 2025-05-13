@@ -9,7 +9,7 @@ const GameGrid = () => {
   const { isLoading, error, data } = useGames();
 
   return (
-     <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} gap={10} padding={10}>
+     <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} gap={5} padding={5}>
       {isLoading && Array.from({ length: 10 }, (_, index) =>(
         <GameCardContainer  key={index}><GameCardSkeleton /></GameCardContainer>
       ))}

@@ -13,13 +13,13 @@ const App = () => {
       }}
       templateColumns={{
         base: '1fr',
-        lg: '250px 1fr'
+        lg: '200px 1fr'
       }}
     >
-      <GridItem area="nav">
+      <GridItem area="nav" paddingX={5}>
         <Navbar />
       </GridItem>
-      <GridItem area="aside">
+      <GridItem area="aside" paddingX={5}>
         <GenreList />
       </GridItem>
       <GridItem area="main">
