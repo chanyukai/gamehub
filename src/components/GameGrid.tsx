@@ -6,15 +6,15 @@ import GameCardContainer from "./GameCardContainer";
 
 
 const GameGrid = () => {
-  const { loading, error, games } = useGames();
+  const { isLoading, error, games } = useGames();
 
   return (
      <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} gap={10} padding={10}>
-      {loading && Array.from({ length: 10 }, (_, index) =>(
+      {isLoading && Array.from({ length: 10 }, (_, index) =>(
         <GameCardContainer><GameCardSkeleton key={index} /></GameCardContainer>
       ))}
       {error && <Text>{error}</Text>}
-      {!loading && !error && games.map(game => (
+      {!isLoading && !error && games.map(game => (
         <GameCardContainer><GameCard key={game.id} game={game} /></GameCardContainer>
       ))}
     </SimpleGrid>
