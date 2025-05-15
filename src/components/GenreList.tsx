@@ -3,10 +3,10 @@ import { HStack, List, Image, Spinner, Link, Heading } from "@chakra-ui/react"
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void,
-  selectedGenre: Genre | null
+  selectedGenreId?: number
 }
 
-const GenreList = ({ selectedGenre ,onSelectedGenre }: Props) => {
+const GenreList = ({ selectedGenreId ,onSelectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
   if (error) return null;
   return (
@@ -24,7 +24,7 @@ const GenreList = ({ selectedGenre ,onSelectedGenre }: Props) => {
                 borderRadius="md"
                 objectFit="cover"
               />
-              <Link fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"} onClick={() => onSelectedGenre(genre)} fontSize="lg" colorPalette="white">{genre.name}</Link>
+              <Link fontWeight={genre.id === selectedGenreId ? "bold" : "normal"} onClick={() => onSelectedGenre(genre)} fontSize="lg" colorPalette="white">{genre.name}</Link>
             </HStack>
           </List.Item>
         ))}
