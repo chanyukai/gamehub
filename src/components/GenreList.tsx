@@ -1,13 +1,12 @@
-import useGenres, { type Genre } from "@/hooks/useGenres"
+import useGenres from "@/hooks/useGenres"
+import useGameQueryStore from "@/store";
 import { HStack, List, Image, Spinner, Link, Heading } from "@chakra-ui/react"
 
-interface Props {
-  onSelectedGenre: (genre: Genre) => void,
-  selectedGenreId?: number
-}
-
-const GenreList = ({ selectedGenreId ,onSelectedGenre }: Props) => {
+const GenreList = () => {
   const { data, isLoading, error } = useGenres();
+  // 这个组件的更新只是依赖于 genreId/setGenreId
+  const genreId = useGameQueryStore(s => s.gameQuery.genreId);
+  const setGenreId = useGameQueryStore(s => s.setGenreId);
   if (error) return null;
   return (
     <>
@@ -24,7 +23,7 @@ const GenreList = ({ selectedGenreId ,onSelectedGenre }: Props) => {
                 borderRadius="md"
                 objectFit="cover"
               />
-              <Link fontWeight={genre.id === selectedGenreId ? "bold" : "normal"} onClick={() => onSelectedGenre(genre)} fontSize="lg" colorPalette="white">{genre.name}</Link>
+              <Link fontWeight={genre.id === genreId ? "bold" : "normal"} onClick={() => setGenreId(genre.id)} fontSize="lg" colorPalette="white">{genre.name}</Link>
             </HStack>
           </List.Item>
         ))}
