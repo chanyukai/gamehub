@@ -1,4 +1,4 @@
-import type { Game } from "@/entities/Game"
+import type Game from "@/entities/Game"
 import { SimpleGrid, Text } from "@chakra-ui/react"
 import CritiScore from "./CritiScore"
 import DefinitionItem from "./DefinitionItem"
