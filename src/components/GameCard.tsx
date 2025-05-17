@@ -1,6 +1,6 @@
 import { Card, Image, Heading, HStack } from "@chakra-ui/react"
 
-import type { Game } from "@/hooks/useGames"
+import type { Game } from "@/entities/Game"
 import PlatformToIcon from "./PlatformToIcon"
 import CritiScore from "./CritiScore"
 import Emoji from "./Emoji"
