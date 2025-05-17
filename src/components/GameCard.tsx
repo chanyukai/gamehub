@@ -4,6 +4,7 @@ import type { Game } from "@/hooks/useGames"
 import PlatformToIcon from "./PlatformToIcon"
 import CritiScore from "./CritiScore"
 import Emoji from "./Emoji"
+import { Link } from "react-router"
 
 interface Props {
   game: Game
@@ -18,7 +19,11 @@ const GameCard = ({ game }: Props) => {
           <PlatformToIcon platforms={game.parent_platforms?.map(p => p.platform)} />
           <CritiScore score={game.metacritic} />
         </HStack>
-        <Heading fontSize="2xl"> {game.name} <Emoji rating={game.rating_top} /></Heading>
+        <Heading fontSize="2xl"> 
+          <Link to={`/games/${game.slug}`}>
+            {game.name} 
+          </Link>
+          <Emoji rating={game.rating_top} /></Heading>
       </Card.Body>
     </Card.Root>
   )
