@@ -1,4 +1,4 @@
-import type { Platform } from "./usePlatforms";
+import type { Platform } from "./Platform";
 
 
 export interface Game {
